@@ -13,7 +13,10 @@ app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUni
 app.use("/customer/auth/*", function auth(req,res,next){
 //Write the authenication mechanism here
 });
- 
+// Internal endpoint for Axios to retrieve the books
+app.get('/api/books', (req, res) => {
+    res.json(books);
+});
 const PORT =5000;
 
 app.use("/customer", customer_routes);
